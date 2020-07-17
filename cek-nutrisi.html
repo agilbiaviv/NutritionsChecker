@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Nutritions Checker | Cek Nutrisi</title>
+  <title>Nutritients Database | Cek Nutrisi</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="./plugins/fontawesome-free/css/all.min.css">
@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     p {
       margin: 0;
     }
-    .dataTables_scrollHeadInner { 
+    .dataTables_scrollHeadInner {
       width: 100% !important;
     }
 
@@ -70,13 +70,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
         transition: .2s;
       }
     }
-    
+
     .layout-fixed .control-sidebar {
       z-index: 9998;
       top: 0 !important;
       bottom: 0 !important;
       height: 100vh !important;
     }
+
+    .form-group {
+      margin-bottom: .5rem;
+    }
+
+    .form-group > label {
+      margin-bottom: .25rem;
+    }
+
+    .brand-link:hover > .brand-text::after {
+      content: ']';
+      margin-left: .25rem;
+    }
+
+    .brand-link:hover > .brand-text::before {
+      content: '[';
+      margin-right: .25rem;
+    }
+
+    .brand-link:hover > .brand-text {
+      letter-spacing: 1px;
+      transition: .3s;
+    }
+
 
 
   </style>
@@ -128,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </li>
         </ul>
-        
+
     </div>
   </nav>
   <!-- /.navbar -->
@@ -137,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-light-success">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <span class="brand-text w-100 d-inline-block text-center text-success">Nutritions Checker</span>
+      <span class="brand-text w-100 d-inline-block text-center text-success">Nutritients Database</span>
     </a>
 
     <!-- Sidebar -->
@@ -169,7 +193,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="./daftar-makanan.html" class="nav-link">
               <i class="nav-icon far fa-edit"></i>
               <p>
-                Daftar Makanan
+                Daftar Bahan Makanan
               </p>
             </a>
           </li>
@@ -212,7 +236,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Cek Nutrisi Makanan </h1>
+            <h1 class="m-0 text-dark"> Susun Makanan </h1>
           </div><!-- /.col -->
           <div class="col-sm-6 d-flex">
           </div>
@@ -228,24 +252,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
+                <div class="form-row">
+                  <!-- leftColumn -->
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Nama </label>
+                      <input type="text" class="form-control" name="nama_pengguna" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label>Usia </label>
+                      <input type="number" class="form-control" name="usia" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label>Kalori </label>
+                      <input type="text" class="form-control" name="max_kalori" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label>Jenis Diet </label>
+                      <input type="text" class="form-control" name="jenis_diet" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
                 <form action="?" method="POST" class="form-row" onsubmit="event.preventDefault(); alert('submit')">
                   <div class="form-group col-lg-4">
-                    <label>Usia</label>
-                    <select class="form-control select2 select2-success" data-dropdown-css-class="select2-success" name="usia" style="width: 100%;">
-                      <option selected="selected">-- Pilih Usia --</option>
-                      <option>0 - 6 Bulan</option>
-                      <option>1 - 5 Tahun</option>
-                      <option>Remaja </option>
-                      <option>Dewasa</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-lg-4">
-                    <label>Porsi</label>
-                    <input type="number" class="form-control" name="porsi" value="1">
-                    <small>* dalam hari</small>
-                  </div>
-                  <div class="form-group col-lg-4">
-                    <label>Pilih Makanan</label>
+                    <label>Pilih Bahan Makanan</label>
                     <select class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
                       <option selected="selected">-- Pilih Makanan --</option>
                       <option>[KODE_xxxx] Apel</option>
@@ -264,68 +301,73 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <option>[KODE_xxxx] Kacang Hijau</option>
                     </select>
                   </div>
-                  <div class="col-12 dropdown-divider"></div>
-                  <div class="ml-auto col-lg-4">
+                  <div class="form-group col-lg-4">
+                    <label>Berat <small>* dalam mg</small></label>
+                    <input type="number" class="form-control" name="berat" placeholder="">
+                  </div>
+                  <div class="form-group d-flex col-lg-4" style="align-items: flex-end">
                     <button type="submit" class="btn btn-block btn-success">Simpan</button>
                   </div>
                 </form>
+                <div class="col-12 dropdown-divider"></div>
+                <div class="card card-success">
+                  <div class="card-header">
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
+                      </button>
+                    </div>
+                    <!-- /.card-tools -->
+                  </div>
+                  <div class="card-body">
+                    <table id="makanan-dipilih" class="table table-striped display w-100 nowrap" >
+                    <thead>
+                    <tr>
+                      <th>Nama Bahan</th>
+                      <th>Karbohidrat</th>
+                      <th>Protein</th>
+                      <th>Vitamin A</th>
+                      <th>Vitamin B</th>
+                      <th>Vitamin C</th>
+                      <th>Vitamin D</th>
+                      <th>Vitamin E</th>
+                      <th>Vitamin B12</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Nasi Merah</td>
+                        <td>60%</td>
+                        <td>30%</td>
+                        <td>2%</td>
+                        <td>3%</td>
+                        <td>1%</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><a class="text-danger p-0" onclick="alert('deleted')" style="cursor: pointer"><i class="fa fa-times-circle"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Nasi Putih</td>
+                        <td>60%</td>
+                        <td>30%</td>
+                        <td>1%</td>
+                        <td>1%</td>
+                        <td>1%</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><a class="text-danger p-0" onclick="alert('deleted')" style="cursor: pointer"><i class="fa fa-times-circle"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-12">
-            <div class="card card-success">
-              <div class="card-header">
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <div class="card-body">
-                <table id="makanan-dipilih" class="table table-striped display w-100 nowrap" >
-                <thead>
-                <tr>
-                  <th>Nama Bahan</th>
-                  <th>Karbohidrat</th>
-                  <th>Protein</th>
-                  <th>Vitamin A</th>
-                  <th>Vitamin B</th>
-                  <th>Vitamin C</th>
-                  <th>Vitamin D</th>
-                  <th>Vitamin E</th>
-                  <th>Vitamin B12</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Nasi Merah</td>
-                    <td>60%</td>
-                    <td>30%</td>
-                    <td>2%</td>
-                    <td>3%</td>
-                    <td>1%</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><a class="text-danger p-0" onclick="alert('deleted')" style="cursor: pointer"><i class="fa fa-times-circle"></i></a></td>
-                  </tr>
-                  <tr>
-                    <td>Nasi Putih</td>
-                    <td>60%</td>
-                    <td>30%</td>
-                    <td>1%</td>
-                    <td>1%</td>
-                    <td>1%</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><a class="text-danger p-0" onclick="alert('deleted')" style="cursor: pointer"><i class="fa fa-times-circle"></i></a></td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
-            </div>
+
 
           </div>
           <!-- /.col-md-6 -->
@@ -347,7 +389,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="demo h-100" style="display: flex; flex: 1; justify-content: center; align-items: center;">
           <h3 class="text-center">Informasi total nutrisi disini</h3>
         </div>
-      
+
       </div>
     </div>
   </aside>
@@ -394,7 +436,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           targets : 0,
           className : "text-left"
         },
-   
+
         {
           targets : "_all",
           className: "text-center"
